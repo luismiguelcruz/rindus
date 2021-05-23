@@ -36,9 +36,11 @@ public class PostController {
     public ResponseEntity<Post> addPost(@RequestBody Post post) {
         final HttpEntity<Post> request = new HttpEntity<>(post);
 
-        return restTemplate.postForEntity(resourceUrl,
+        final ResponseEntity<Post> postResponseEntity = restTemplate.postForEntity(resourceUrl,
                 request,
                 Post.class);
+
+        return postResponseEntity;
     }
 
     @PutMapping("/posts/{userId}")

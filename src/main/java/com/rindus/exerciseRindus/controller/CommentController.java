@@ -29,6 +29,7 @@ public class CommentController {
 
     @PostMapping("/comments")
     public ResponseEntity<Comment> addComment(@RequestBody Comment comment) {
+        RestTemplate restTemplate = new RestTemplate();
         final HttpEntity<Comment> request = new HttpEntity<>(comment);
 
         return restTemplate.postForEntity(resourceUrl,

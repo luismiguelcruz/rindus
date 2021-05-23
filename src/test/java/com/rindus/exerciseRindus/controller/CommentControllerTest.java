@@ -2,6 +2,7 @@ package com.rindus.exerciseRindus.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rindus.exerciseRindus.model.Comment;
+import com.rindus.exerciseRindus.model.Post;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -50,11 +51,16 @@ public class CommentControllerTest {
     public void testAddComment() {
         final ResponseEntity<Comment> responseEntity = commentController.addComment(
                 new Comment(500, 500, "Test", "Test", "Test"));
+        final ResponseEntity<Object[]> responseEntityGet = commentController.getCommentsByPostInUrl("1");
+
+        final List<Comment> comments = Arrays.stream(responseEntityGet.getBody())
+                .map(object -> new ObjectMapper().convertValue(object, Comment.class))
+                .collect(Collectors.toList());
 
         final Comment comment = responseEntity.getBody();
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
-        assertThat(comment.getPostId()).isEqualTo(500);
+        assertThat(comment.getId()).isEqualTo(501);
     }
 
     @Test
@@ -65,11 +71,7 @@ public class CommentControllerTest {
         final Comment comment = responseEntity.getBody();
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(comment.getPostId()).isEqualTo(500);
         assertThat(comment.getId()).isEqualTo(1);
-        assertThat(comment.getName()).isEqualTo("Test");
-        assertThat(comment.getEmail()).isEqualTo("Test");
-        assertThat(comment.getBody()).isEqualTo("Test");
     }
 
     @Test
