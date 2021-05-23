@@ -39,9 +39,9 @@ Services:
   The XML file location could be set up modifying the property "xml.output.path" in application.properties.
 
 ## Improvements
-- I could consider to parse/unparse objects using ExternalDataService as an improvement. Separate it, could let us create a checker
-to controlls possible errors on the the seralization process.
-- We could think about managing custom exceptions for informing about possible errors. I considered we are retrieving the correct
-info from the external API, but for ensuring it, managing the exceptions would be a really good improvement.
+- I could consider to parse/unparse objects using ExternalDataService as an improvement. Separate it, could let us
+ create a checker to control possible errors on the the seralization process.
+- We could think about managing custom exceptions for informing about possible errors. I considered we are retrieving
+ the correct info from the external API, but for ensuring it, managing the exceptions would be a really good improvement.
 - The location of the created XML file is configurable but, it remains static during the whole life of the API.
 We could consider defining it as a external parameter that the user can override at runtime.
