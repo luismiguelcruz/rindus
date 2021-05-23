@@ -43,5 +43,5 @@ Services:
 to controlls possible errors on the the seralization process.
 - We could think about managing custom exceptions for informing about possible errors. I considered we are retrieving the correct
 info from the external API, but for ensuring it, managing the exceptions would be a really good improvement.
-- The location of the created XML file is configurable but, it remains static during the whole life of the API. We could consider
-on define it as a external parameter that the user can override at runtime.
+- The location of the created XML file is configurable but, it remains static during the whole life of the API.
+We could consider defining it as a external parameter that the user can override at runtime.
