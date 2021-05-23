@@ -31,7 +31,7 @@ before starting te application.
 a specific test to test the behaviour.
 
 Services:
-- Additionally I created 2 services to manage 2 different tasks.
+Additionally I created 2 services to manage 2 different tasks.
   - ExtractDataService. It can be used to serialize a JSON from an existing object. This service has been created in order to
   let create the serialization. I considered to parse the object at the same time I'm getting the info from the external API.
   It avoids managing external processes for it.
