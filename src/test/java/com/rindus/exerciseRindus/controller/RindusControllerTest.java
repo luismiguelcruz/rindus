@@ -25,7 +25,7 @@ public class RindusControllerTest {
 
     @Test
     public void testExtractData() {
-        final ResponseEntity<Void> responseEntity = rindusController.extractData();
+        final ResponseEntity<String> responseEntity = rindusController.extractData();
 
         final File f = new File(WriteFileServiceImpl.RESOURCES_RELATIVE_PATH);
         assertThat(f.length()).isGreaterThan(0);
